@@ -189,6 +189,12 @@ Bias correction compensates for these initial low moment estimates, ensuring tha
 
 ### Problem 3: Regularization
 
+1. Dropout can be seen as a way of doing an equally-weighted averaging of exponentially many models with shared weights. This is similar to the idea behind ensemble methods, which combine multiple models to improve performance. However, in networks with a large number of parameters, the number of possible models becomes so large that it is impractical to train and combine them all. Dropout provides a computationally efficient way to achieve a similar effect by randomly dropping out units during training, effectively creating many different thinned networks that share weights. This allows dropout to outperform ensemble methods in large networks, where the number of possible models is too large to exhaustively explore.
+
+2. Dropout acts like a regularization technique because it encourages the network to learn more robust features that are useful for multiple different paths through the network. By randomly dropping out units during training, dropout prevents any single unit from relying too heavily on the presence of other units, forcing each unit to learn more useful and independent features. This reduces the risk of overfitting to the training data and improves the generalization performance of the network.
+
+3. The difference between using dropout during training and testing is that during training, dropout randomly drops out units with a certain probability, while during testing, all units are present but their outputs are scaled down by the same probability. The reason for this difference is that during training, dropout is used to prevent overfitting by forcing the network to learn more robust features. By randomly dropping out units, the network is forced to learn features that are useful for multiple different paths through the network, reducing the risk of overfitting. During testing, however, we want to use the full power of the network to make predictions, so we need to scale down the outputs of the units to account for the fact that some of them were dropped out during training.
+
 #### Question 1: Dropout and Ensemble Learning
 
 Dropout is a regularization technique that randomly omits a subset of features or units at each iteration of training. This is similar to ensemble learning because:
@@ -337,4 +343,3 @@ The derivatives \( dL/dx \) being zero can be a result of the simplifications ma
 The derivative \( dL/d\beta \) being 2.0 indicates that increasing \( \beta \) by a small amount would increase the loss, given our simple loss function and the current values of \( x \), \( \gamma \), and \( \beta \).
 
 These calculations illustrate how the gradients for batch normalization are computed during backpropagation, which can then be used to update \( \gamma \) and \( \beta \) during training.
-
