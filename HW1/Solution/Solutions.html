@@ -1,381 +1,208 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Solutions</title>
-  <style>
-    html {
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 12px;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      html {
-        background-color: white;
-      }
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    svg {
-      height: auto;
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-      font-size: 85%;
-      margin: 0;
-      hyphens: manual;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-  </style>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script
-  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
-  type="text/javascript"></script>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
-</head>
-<body>
-<nav id="TOC" role="doc-toc">
-<ul>
-<li><a href="#deep-learning-hw-1" id="toc-deep-learning-hw-1">Deep
-Learning HW 1</a></li>
-<li><a href="#problem-1" id="toc-problem-1">Problem 1</a>
-<ul>
-<li><a href="#part-1" id="toc-part-1">Part 1</a></li>
-<li><a href="#part-2" id="toc-part-2">Part 2</a>
-<ul>
-<li><a href="#proof-a-derivative-of-the-dot-product"
-id="toc-proof-a-derivative-of-the-dot-product">Proof A: Derivative of
-the Dot Product</a></li>
-<li><a href="#proof-b-derivative-of-the-trace-of-a-matrix-product"
-id="toc-proof-b-derivative-of-the-trace-of-a-matrix-product">Proof B:
-Derivative of the Trace of a Matrix Product</a></li>
-<li><a
-href="#proof-c-derivative-of-the-trace-of-a-matrix-quadratic-form"
-id="toc-proof-c-derivative-of-the-trace-of-a-matrix-quadratic-form">Proof
-C: Derivative of the Trace of a Matrix Quadratic Form</a></li>
-<li><a href="#proof-d-derivative-of-the-log-determinant-of-x"
-id="toc-proof-d-derivative-of-the-log-determinant-of-x">Proof D:
-Derivative of the Log Determinant of ( X )</a></li>
-</ul></li>
-<li><a href="#part-3" id="toc-part-3">Part 3</a>
-<ul>
-<li><a href="#eigenvalues-and-eigenvectors-of-rotation-matrix"
-id="toc-eigenvalues-and-eigenvectors-of-rotation-matrix">Eigenvalues and
-Eigenvectors of Rotation Matrix</a></li>
-<li><a href="#determinant-and-eigenvalues"
-id="toc-determinant-and-eigenvalues">Determinant and
-Eigenvalues</a></li>
-<li><a href="#diagonalization-and-powers-of-a-matrix"
-id="toc-diagonalization-and-powers-of-a-matrix">Diagonalization and
-Powers of a Matrix</a></li>
-</ul></li>
-<li><a href="#problem-2" id="toc-problem-2">Problem 2</a>
-<ul>
-<li><a href="#problem-2-optimization"
-id="toc-problem-2-optimization">Problem 2: Optimization</a></li>
-</ul></li>
-<li><a href="#problem-3" id="toc-problem-3">Problem 3</a>
-<ul>
-<li><a href="#problem-3-regularization"
-id="toc-problem-3-regularization">Problem 3: Regularization</a></li>
-</ul></li>
-<li><a href="#problem-4" id="toc-problem-4">Problem 4</a>
-<ul>
-<li><a href="#problem-4-activation-functions"
-id="toc-problem-4-activation-functions">Problem 4: Activation
-Functions</a></li>
-</ul></li>
-<li><a href="#problem-5" id="toc-problem-5">Problem 5</a>
-<ul>
-<li><a href="#problem-5-neural-networks-and-backpropagation"
-id="toc-problem-5-neural-networks-and-backpropagation">Problem 5: Neural
-Networks and Backpropagation</a></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
 <h1 id="deep-learning-hw-1">Deep Learning HW 1</h1>
 <h1 id="problem-1">Problem 1</h1>
 <h2 id="part-1">Part 1</h2>
-<p>For a scalar-valued function ( f: ^n ), the gradient ( f ) is a
-vector in ( ^n ) whose components are the partial derivatives of ( f )
-with respect to each variable, that is:</p>
-<p>[ f = ^T ]</p>
-<p>The Hessian matrix ( H ) of the function ( f ) is then the square
-matrix of all second-order mixed partial derivatives:</p>
-[ H =
-<span class="math display">\[\begin{bmatrix}
-\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial
-x_1 \partial x_2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_1
-\partial x_n} \\
-\frac{\partial^2 f}{\partial x_2 \partial x_1} &amp; \frac{\partial^2
-f}{\partial x_2^2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_2
-\partial x_n} \\
+<p>For a scalar-valued
+function<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mo>:</mo><msup><mi>ℝ</mi><mi>n</mi></msup><mo>→</mo><mi>ℝ</mi></mrow><annotation encoding="application/x-tex">f: \mathbb{R}^n \rightarrow \mathbb{R}</annotation></semantics></math>,
+the
+gradient<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\nabla f</annotation></semantics></math>is
+a vector
+in<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^n</annotation></semantics></math>whose
+components are the partial derivatives
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>with
+respect to each variable, that is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><mi>∂</mi><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub></mrow></mfrac><mo>,</mo><mfrac><mrow><mi>∂</mi><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>2</mn></msub></mrow></mfrac><mo>,</mo><mi>…</mi><mo>,</mo><mfrac><mrow><mi>∂</mi><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>n</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\nabla f = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right]^T</annotation></semantics></math></p>
+<p>The Hessian
+matrix<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>of
+the
+function<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>is
+then the square matrix of all second-order mixed partial
+derivatives:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msubsup><mi>x</mi><mn>1</mn><mn>2</mn></msubsup></mrow></mfrac></mtd><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub><mi>∂</mi><msub><mi>x</mi><mn>2</mn></msub></mrow></mfrac></mtd><mtd columnalign="center" style="text-align: center"><mi>⋯</mi></mtd><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub><mi>∂</mi><msub><mi>x</mi><mi>n</mi></msub></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>2</mn></msub><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub></mrow></mfrac></mtd><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msubsup><mi>x</mi><mn>2</mn><mn>2</mn></msubsup></mrow></mfrac></mtd><mtd columnalign="center" style="text-align: center"><mi>⋯</mi></mtd><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>2</mn></msub><mi>∂</mi><msub><mi>x</mi><mi>n</mi></msub></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>⋮</mi></mtd><mtd columnalign="center" style="text-align: center"><mi>⋮</mi></mtd><mtd columnalign="center" style="text-align: center"><mo>⋱</mo></mtd><mtd columnalign="center" style="text-align: center"><mi>⋮</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>n</mi></msub><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub></mrow></mfrac></mtd><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>n</mi></msub><mi>∂</mi><msub><mi>x</mi><mn>2</mn></msub></mrow></mfrac></mtd><mtd columnalign="center" style="text-align: center"><mi>⋯</mi></mtd><mtd columnalign="center" style="text-align: center"><mfrac><mrow><msup><mi>∂</mi><mn>2</mn></msup><mi>f</mi></mrow><mrow><mi>∂</mi><msubsup><mi>x</mi><mi>n</mi><mn>2</mn></msubsup></mrow></mfrac></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">H =
+\begin{bmatrix}
+\frac{\partial^2 f}{\partial x_1^2} &amp; \frac{\partial^2 f}{\partial x_1 \partial x_2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} &amp; \frac{\partial^2 f}{\partial x_2^2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
 \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-\frac{\partial^2 f}{\partial x_n \partial x_1} &amp; \frac{\partial^2
-f}{\partial x_n \partial x_2} &amp; \cdots &amp; \frac{\partial^2
-f}{\partial x_n^2} \\
-\end{bmatrix}\]</span>
-<p>]</p>
-<p>If ( f ) is twice continuously differentiable, the order of
-differentiation does not matter (Schwarz’s theorem), and thus the
-Hessian matrix is symmetric.</p>
-<p>Now, if we consider ( f ) as a vector-valued function from ( ^n ) to
-( ^n ), its Jacobian ( J ) would be a matrix where each row is the
-gradient of each component of ( f ). Since ( f ) is already the gradient
-of ( f ), its Jacobian would consist of the second derivatives of ( f )
-with respect to each variable, which is precisely the Hessian
-matrix:</p>
-<p>[ J(f) = H ]</p>
+\frac{\partial^2 f}{\partial x_n \partial x_1} &amp; \frac{\partial^2 f}{\partial x_n \partial x_2} &amp; \cdots &amp; \frac{\partial^2 f}{\partial x_n^2} \\
+\end{bmatrix}
+</annotation></semantics></math></p>
+<p>If<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>is
+twice continuously differentiable, the order of differentiation does not
+matter (Schwarz’s theorem), and thus the Hessian matrix is
+symmetric.</p>
+<p>Now, if we
+consider<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\nabla f</annotation></semantics></math>as
+a vector-valued function
+from<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^n</annotation></semantics></math>to<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^n</annotation></semantics></math>,
+its
+Jacobian<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>J</mi><annotation encoding="application/x-tex">J</annotation></semantics></math>would
+be a matrix where each row is the gradient of each component
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\nabla f</annotation></semantics></math>.
+Since<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi></mrow><annotation encoding="application/x-tex">\nabla f</annotation></semantics></math>is
+already the gradient
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>,
+its Jacobian would consist of the second derivatives
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>with
+respect to each variable, which is precisely the Hessian matrix:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>∇</mi><mi>f</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">J(\nabla f) = H</annotation></semantics></math></p>
 <p>This means that the Hessian is effectively the Jacobian of the
-gradient vector of ( f ). It describes the local curvature of ( f ) in
+gradient vector
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>.
+It describes the local curvature
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>in
 different directions in the space.</p>
 <h2 id="part-2">Part 2</h2>
 <h3 id="proof-a-derivative-of-the-dot-product">Proof A: Derivative of
 the Dot Product</h3>
-<p>Consider the dot product of two vectors ( x ) and ( a ) in ( ^n
-):</p>
-<p>[ f(x) = x^T a ]</p>
+<p>Consider the dot product of two
+vectors<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>in<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>ℝ</mi><mi>n</mi></msup><annotation encoding="application/x-tex">\mathbb{R}^n</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>x</mi><mi>T</mi></msup><mi>a</mi></mrow><annotation encoding="application/x-tex">f(x) = x^T a</annotation></semantics></math></p>
 <p>This function can be expanded as:</p>
-<p>[ f(x) = _{i=1}^{n} x_i a_i ]</p>
-<p>Taking the derivative of ( f ) with respect to the vector ( x ) gives
-us a vector where each component is the partial derivative of ( f ) with
-respect to ( x_i ):</p>
-<p>[ = ^T ]</p>
-<p>Since ( a ) is constant, the derivative of each term ( x_i a_i ) with
-respect to ( x_i ) is simply ( a_i ). Therefore, the gradient of ( f )
-is:</p>
-<p>[ f(x) = a ]</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>x</mi><mi>i</mi></msub><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">f(x) = \sum_{i=1}^{n} x_i a_i</annotation></semantics></math></p>
+<p>Taking the derivative
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>with
+respect to the
+vector<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>gives
+us a vector where each component is the partial derivative
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>with
+respect
+to<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>f</mi></mrow><mrow><mi>∂</mi><mi>x</mi></mrow></mfrac><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">[</mo><mfrac><mrow><mi>∂</mi><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub></mrow></mfrac><mo>,</mo><mfrac><mrow><mi>∂</mi><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>2</mn></msub></mrow></mfrac><mo>,</mo><mi>…</mi><mo>,</mo><mfrac><mrow><mi>∂</mi><mi>f</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mi>n</mi></msub></mrow></mfrac><mo stretchy="true" form="postfix">]</mo></mrow><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\frac{\partial f}{\partial x} = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right]^T</annotation></semantics></math></p>
+<p>Since<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>is
+constant, the derivative of each
+term<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i a_i</annotation></semantics></math>with
+respect
+to<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mi>i</mi></msub><annotation encoding="application/x-tex">x_i</annotation></semantics></math>is
+simply<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>a</mi><mi>i</mi></msub><annotation encoding="application/x-tex">a_i</annotation></semantics></math>.
+Therefore, the gradient
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>f</mi><annotation encoding="application/x-tex">f</annotation></semantics></math>is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>∇</mi><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">\nabla f(x) = a</annotation></semantics></math></p>
 <h3 id="proof-b-derivative-of-the-trace-of-a-matrix-product">Proof B:
 Derivative of the Trace of a Matrix Product</h3>
-<p>Let ( X ) be a matrix and ( A ) a constant matrix. Then the function
-is:</p>
-<p>[ f(X) = (AX) ]</p>
-<p>The trace of a matrix product has the property that ( (AB) = (BA) ).
-The derivative of the trace of a product with respect to the matrix ( X
-) is the transpose of the other matrix, hence:</p>
-<p>[ = A^T ]</p>
+<p>Let<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>be
+a matrix
+and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>a
+constant matrix. Then the function is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(X) = \text{tr}(AX)</annotation></semantics></math></p>
+<p>The trace of a matrix product has the property
+that<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>B</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>B</mi><mi>A</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\text{tr}(AB) = \text{tr}(BA)</annotation></semantics></math>.
+The derivative of the trace of a product with respect to the
+matrix<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>is
+the transpose of the other matrix, hence:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mo>=</mo><msup><mi>A</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\frac{\partial \text{tr}(AX)}{\partial X} = A^T</annotation></semantics></math></p>
 <h3
 id="proof-c-derivative-of-the-trace-of-a-matrix-quadratic-form">Proof C:
 Derivative of the Trace of a Matrix Quadratic Form</h3>
-<p>For the quadratic form ( X^TAX ), where ( X ) is a matrix and ( A )
-is a symmetric constant matrix, the function ( f(X) ) is:</p>
-<p>[ f(X) = (X^TAX) ]</p>
+<p>For the quadratic
+form<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>X</mi><mi>T</mi></msup><mi>A</mi><mi>X</mi></mrow><annotation encoding="application/x-tex">X^TAX</annotation></semantics></math>,
+where<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>is
+a matrix
+and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>is
+a symmetric constant matrix, the
+function<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(X)</annotation></semantics></math>is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mi>T</mi></msup><mi>A</mi><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(X) = \text{tr}(X^TAX)</annotation></semantics></math></p>
 <p>By applying the properties of the trace and derivative, we have:</p>
-<p>[ = ]</p>
-<p>Since ( A ) is symmetric, the derivative of this expression with
-respect to ( X ) involves the sum of derivatives with respect to each
-element of ( X ), which gives:</p>
-<p>[ = (A + A^T)X ]</p>
-<p>Given that ( A ) is symmetric, ( A = A^T ), simplifying to:</p>
-<p>[ = 2AX ]</p>
-<h3 id="proof-d-derivative-of-the-log-determinant-of-x">Proof D:
-Derivative of the Log Determinant of ( X )</h3>
-<p>For a square matrix ( X ), the function ( f(X) ) is:</p>
-<p>[ f(X) = ((X)) ]</p>
-<p>Using the property that ( (X) ) is the product of its eigenvalues (
-_i ), we can express ( f(X) ) as:</p>
-<p>[ f(X) = (_{i=1}^{n} _i) ]</p>
-<p>Taking the derivative of both sides with respect to ( X ) and
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mi>T</mi></msup><mi>A</mi><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mo>=</mo><mfrac><mrow><mi>∂</mi><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mi>X</mi><msup><mi>X</mi><mi>T</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial \text{tr}(X^TAX)}{\partial X} = \frac{\partial \text{tr}(AXX^T)}{\partial X}</annotation></semantics></math></p>
+<p>Since<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>is
+symmetric, the derivative of this expression with respect
+to<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>involves
+the sum of derivatives with respect to each element
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
+which gives:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mi>T</mi></msup><mi>A</mi><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mo>=</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>A</mi><mo>+</mo><msup><mi>A</mi><mi>T</mi></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>X</mi></mrow><annotation encoding="application/x-tex">\frac{\partial \text{tr}(X^TAX)}{\partial X} = (A + A^T)X</annotation></semantics></math></p>
+<p>Given
+that<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>A</mi><annotation encoding="application/x-tex">A</annotation></semantics></math>is
+symmetric,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><msup><mi>A</mi><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">A = A^T</annotation></semantics></math>,
+simplifying to:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mtext mathvariant="normal">tr</mtext><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mi>T</mi></msup><mi>A</mi><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mo>=</mo><mn>2</mn><mi>A</mi><mi>X</mi></mrow><annotation encoding="application/x-tex">\frac{\partial \text{tr}(X^TAX)}{\partial X} = 2AX</annotation></semantics></math></p>
+<h3 id="proof-d-derivative-of-the-log-determinant-ofx">Proof D:
+Derivative of the Log Determinant
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math></h3>
+<p>For a square
+matrix<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>,
+the
+function<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(X)</annotation></semantics></math>is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(X) = \log(\det(X))</annotation></semantics></math></p>
+<p>Using the property
+that<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\det(X)</annotation></semantics></math>is
+the product of its
+eigenvalues<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mi>i</mi></msub><annotation encoding="application/x-tex">\lambda_i</annotation></semantics></math>,
+we can
+express<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(X)</annotation></semantics></math>as:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><munderover><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>λ</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">f(X) = \log\left(\prod_{i=1}^{n} \lambda_i\right)</annotation></semantics></math></p>
+<p>Taking the derivative of both sides with respect
+to<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>and
 applying the chain rule, we get:</p>
-<p>[ = (_{i=1}^{n} (_i)) ]</p>
-<p>Since the derivative of the logarithm is ( 1/x ), and using Jacobi’s
-formula for the derivative of a determinant, we obtain:</p>
-<p>[ = = (X) (X<sup>{-1})</sup>T ]</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mo>=</mo><mfrac><mi>∂</mi><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mrow><mo stretchy="true" form="prefix">(</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo>log</mo><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>λ</mi><mi>i</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\frac{\partial f(X)}{\partial X} = \frac{\partial}{\partial X} \left(\sum_{i=1}^{n} \log(\lambda_i)\right)</annotation></semantics></math></p>
+<p>Since the derivative of the logarithm
+is<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">1/x</annotation></semantics></math>,
+and using Jacobi’s formula for the derivative of a determinant, we
+obtain:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>⋅</mo><mfrac><mrow><mi>∂</mi><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow></mfrac><mo>⋅</mo><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>⋅</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\frac{\partial f(X)}{\partial X} = \frac{1}{\det(X)} \cdot \frac{\partial \det(X)}{\partial X} = \frac{1}{\det(X)} \cdot \det(X) \cdot (X^{-1})^T</annotation></semantics></math></p>
 <p>Which simplifies to:</p>
-<p>[ = (X<sup>{-1})</sup>T ]</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>∂</mi><mi>f</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><mrow><mi>∂</mi><mi>X</mi></mrow></mfrac><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><msup><mi>X</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>T</mi></msup></mrow><annotation encoding="application/x-tex">\frac{\partial f(X)}{\partial X} = (X^{-1})^T</annotation></semantics></math></p>
 <h2 id="part-3">Part 3</h2>
 <h3 id="eigenvalues-and-eigenvectors-of-rotation-matrix">Eigenvalues and
 Eigenvectors of Rotation Matrix</h3>
-<p>Given the rotation matrix ( R() ):</p>
-[ R() =
-<span class="math display">\[\begin{bmatrix} \cos(\theta) &amp;
--\sin(\theta) \\ \sin(\theta) &amp; \cos(\theta) \end{bmatrix}\]</span>
-<p>]</p>
-<p>To find the eigenvalues, we solve the characteristic equation ( (R()
-- I) = 0 ):</p>
-[
-<span class="math display">\[\begin{vmatrix} \cos(\theta) - \lambda
-&amp; -\sin(\theta) \\ \sin(\theta) &amp; \cos(\theta) - \lambda
-\end{vmatrix}\]</span>
-<p>= 0 ]</p>
-<p>[ (() - )^2 + ^2() = 0 ]</p>
-<p>[ ^2 - 2() + 1 = 0 ]</p>
+<p>Given the rotation
+matrix<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R(\theta)</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>−</mo><mo>sin</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo>sin</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">R(\theta) = \begin{bmatrix} \cos(\theta) &amp; -\sin(\theta) \\ \sin(\theta) &amp; \cos(\theta) \end{bmatrix}</annotation></semantics></math></p>
+<p>To find the eigenvalues, we solve the characteristic
+equation<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>λ</mi><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\det(R(\theta) - \lambda I) = 0</annotation></semantics></math>:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">∣</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>λ</mi></mtd><mtd columnalign="center" style="text-align: center"><mo>−</mo><mo>sin</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo>sin</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>λ</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">∣</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\begin{vmatrix} \cos(\theta) - \lambda &amp; -\sin(\theta) \\ \sin(\theta) &amp; \cos(\theta) - \lambda \end{vmatrix} = 0</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mrow><mo stretchy="true" form="prefix">(</mo><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>λ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup><mo>+</mo><msup><mo>sin</mo><mn>2</mn></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(\cos(\theta) - \lambda)^2 + \sin^2(\theta) = 0</annotation></semantics></math></p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>λ</mi><mn>2</mn></msup><mo>−</mo><mn>2</mn><mi>λ</mi><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\lambda^2 - 2\lambda\cos(\theta) + 1 = 0</annotation></semantics></math></p>
 <p>Solving this quadratic equation gives us the eigenvalues:</p>
-<p>[ _{1,2} = () i() ]</p>
-<p>The corresponding eigenvectors ( v ) are found by solving ( (R() -
-I)v = 0 ). Since the eigenvalues are complex, the eigenvectors will also
-be complex. For example, for ( _1 ), we have:</p>
-[ v_1 =
-<span class="math display">\[\begin{bmatrix} i \\ 1
-\end{bmatrix}\]</span>
-<p>]</p>
-<p>For ( _2 ), the eigenvector ( v_2 ) will be the complex conjugate of
-( v_1 ).</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>λ</mi><mrow><mn>1</mn><mo>,</mo><mn>2</mn></mrow></msub><mo>=</mo><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>±</mo><mi>i</mi><mo>sin</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">\lambda_{1,2} = \cos(\theta) \pm i\sin(\theta)</annotation></semantics></math></p>
+<p>The corresponding
+eigenvectors<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>are
+found by
+solving<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">(</mo><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>−</mo><mi>λ</mi><mi>I</mi><mo stretchy="true" form="postfix">)</mo></mrow><mi>v</mi><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">(R(\theta) - \lambda I)v = 0</annotation></semantics></math>.
+Since the eigenvalues are complex, the eigenvectors will also be
+complex. For example,
+for<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mn>1</mn></msub><annotation encoding="application/x-tex">\lambda_1</annotation></semantics></math>,
+we have:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>v</mi><mn>1</mn></msub><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>i</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mn>1</mn></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">v_1 = \begin{bmatrix} i \\ 1 \end{bmatrix}</annotation></semantics></math></p>
+<p>For<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>λ</mi><mn>2</mn></msub><annotation encoding="application/x-tex">\lambda_2</annotation></semantics></math>,
+the
+eigenvector<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mn>2</mn></msub><annotation encoding="application/x-tex">v_2</annotation></semantics></math>will
+be the complex conjugate
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mn>1</mn></msub><annotation encoding="application/x-tex">v_1</annotation></semantics></math>.</p>
 <h3 id="determinant-and-eigenvalues">Determinant and Eigenvalues</h3>
-<p>The determinant of a matrix ( X ) is the product of its
-eigenvalues:</p>
-<p>[ (X) = _{i=1}^{n} _i ]</p>
-<p>For the rotation matrix ( R() ), the eigenvalues are ( e^{i} ) and (
-e^{-i} ), so the determinant is:</p>
-<p>[ (R()) = e^{i} e^{-i} = 1 ]</p>
+<p>The determinant of a
+matrix<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>is
+the product of its eigenvalues:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>X</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munderover><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><msub><mi>λ</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\det(X) = \prod_{i=1}^{n} \lambda_i</annotation></semantics></math></p>
+<p>For the rotation
+matrix<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R(\theta)</annotation></semantics></math>,
+the eigenvalues
+are<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>i</mi><mi>θ</mi></mrow></msup><annotation encoding="application/x-tex">e^{i\theta}</annotation></semantics></math>and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>θ</mi></mrow></msup><annotation encoding="application/x-tex">e^{-i\theta}</annotation></semantics></math>,
+so the determinant is:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>det</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>e</mi><mrow><mi>i</mi><mi>θ</mi></mrow></msup><mo>⋅</mo><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>θ</mi></mrow></msup><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\det(R(\theta)) = e^{i\theta} \cdot e^{-i\theta} = 1</annotation></semantics></math></p>
 <h3 id="diagonalization-and-powers-of-a-matrix">Diagonalization and
 Powers of a Matrix</h3>
-<p>The diagonalization of a matrix ( X ) is ( X = PDP^{-1} ), where ( D
-) is a diagonal matrix of eigenvalues and ( P ) is a matrix of
-corresponding eigenvectors. For the rotation matrix, this is not
-possible in real numbers because the eigenvalues are complex. However,
-if ( R() ) were diagonalizable over the complex numbers, then:</p>
-<p>[ R^n() = (PDP<sup>{-1})</sup>n = PD<sup>nP</sup>{-1} ]</p>
-<p>Since ( D ) is diagonal with ( e^{i} ) and ( e^{-i} ) on the
-diagonal, ( D^n ) would have ( e^{in} ) and ( e^{-in} ), and thus:</p>
-[ R^n() =
-<span class="math display">\[\begin{bmatrix} \cos(n\theta) &amp;
--\sin(n\theta) \\ \sin(n\theta) &amp; \cos(n\theta)
-\end{bmatrix}\]</span>
-<p>]</p>
-<p>Which is equivalent to ( R(n) ), showing that ( R(n) = R^n() ).</p>
+<p>The diagonalization of a
+matrix<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>X</mi><annotation encoding="application/x-tex">X</annotation></semantics></math>is<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo>=</mo><mi>P</mi><mi>D</mi><msup><mi>P</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">X = PDP^{-1}</annotation></semantics></math>,
+where<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>is
+a diagonal matrix of eigenvalues
+and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>P</mi><annotation encoding="application/x-tex">P</annotation></semantics></math>is
+a matrix of corresponding eigenvectors. For the rotation matrix, this is
+not possible in real numbers because the eigenvalues are complex.
+However,
+if<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R(\theta)</annotation></semantics></math>were
+diagonalizable over the complex numbers, then:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mi>n</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>P</mi><mi>D</mi><msup><mi>P</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup><mo stretchy="true" form="postfix">)</mo></mrow><mi>n</mi></msup><mo>=</mo><mi>P</mi><msup><mi>D</mi><mi>n</mi></msup><msup><mi>P</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">R^n(\theta) = (PDP^{-1})^n = PD^nP^{-1}</annotation></semantics></math></p>
+<p>Since<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>D</mi><annotation encoding="application/x-tex">D</annotation></semantics></math>is
+diagonal
+with<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>i</mi><mi>θ</mi></mrow></msup><annotation encoding="application/x-tex">e^{i\theta}</annotation></semantics></math>and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>θ</mi></mrow></msup><annotation encoding="application/x-tex">e^{-i\theta}</annotation></semantics></math>on
+the
+diagonal,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>D</mi><mi>n</mi></msup><annotation encoding="application/x-tex">D^n</annotation></semantics></math>would
+have<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mi>i</mi><mi>n</mi><mi>θ</mi></mrow></msup><annotation encoding="application/x-tex">e^{in\theta}</annotation></semantics></math>and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>e</mi><mrow><mo>−</mo><mi>i</mi><mi>n</mi><mi>θ</mi></mrow></msup><annotation encoding="application/x-tex">e^{-in\theta}</annotation></semantics></math>,
+and thus:</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>R</mi><mi>n</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>−</mo><mo>sin</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo>sin</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd><mtd columnalign="center" style="text-align: center"><mo>cos</mo><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">R^n(\theta) = \begin{bmatrix} \cos(n\theta) &amp; -\sin(n\theta) \\ \sin(n\theta) &amp; \cos(n\theta) \end{bmatrix}</annotation></semantics></math></p>
+<p>Which is equivalent
+to<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R(n\theta)</annotation></semantics></math>,
+showing
+that<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>R</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>n</mi><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><msup><mi>R</mi><mi>n</mi></msup><mrow><mo stretchy="true" form="prefix">(</mo><mi>θ</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">R(n\theta) = R^n(\theta)</annotation></semantics></math>.</p>
 <h2 id="problem-2">Problem 2</h2>
 <h3 id="problem-2-optimization">Problem 2: Optimization</h3>
 <h4
@@ -450,6 +277,39 @@ ensuring that the adaptive learning rates are neither too high nor too
 low at the start of training.</p>
 <h2 id="problem-3">Problem 3</h2>
 <h3 id="problem-3-regularization">Problem 3: Regularization</h3>
+<ol type="1">
+<li><p>Dropout can be seen as a way of doing an equally-weighted
+averaging of exponentially many models with shared weights. This is
+similar to the idea behind ensemble methods, which combine multiple
+models to improve performance. However, in networks with a large number
+of parameters, the number of possible models becomes so large that it is
+impractical to train and combine them all. Dropout provides a
+computationally efficient way to achieve a similar effect by randomly
+dropping out units during training, effectively creating many different
+thinned networks that share weights. This allows dropout to outperform
+ensemble methods in large networks, where the number of possible models
+is too large to exhaustively explore.</p></li>
+<li><p>Dropout acts like a regularization technique because it
+encourages the network to learn more robust features that are useful for
+multiple different paths through the network. By randomly dropping out
+units during training, dropout prevents any single unit from relying too
+heavily on the presence of other units, forcing each unit to learn more
+useful and independent features. This reduces the risk of overfitting to
+the training data and improves the generalization performance of the
+network.</p></li>
+<li><p>The difference between using dropout during training and testing
+is that during training, dropout randomly drops out units with a certain
+probability, while during testing, all units are present but their
+outputs are scaled down by the same probability. The reason for this
+difference is that during training, dropout is used to prevent
+overfitting by forcing the network to learn more robust features. By
+randomly dropping out units, the network is forced to learn features
+that are useful for multiple different paths through the network,
+reducing the risk of overfitting. During testing, however, we want to
+use the full power of the network to make predictions, so we need to
+scale down the outputs of the units to account for the fact that some of
+them were dropped out during training.</p></li>
+</ol>
 <h4 id="question-1-dropout-and-ensemble-learning">Question 1: Dropout
 and Ensemble Learning</h4>
 <p>Dropout is a regularization technique that randomly omits a subset of
@@ -608,33 +468,38 @@ Calculate Backpropagation for One Step</h4>
 performing one step of backpropagation. Here’s the architecture for
 reference:</p>
 <ul>
-<li>Input nodes: ( x_1, x_2 )</li>
-<li>Hidden nodes: ( h_1, h_2 )</li>
-<li>Output node: ( y )</li>
-<li>Weights: ( w_1, w_2, w_3, w_4 ) for the input to hidden layer, (
-w_5, w_6 ) for the hidden to output layer</li>
-<li>Biases: ( b_1, b_2 )</li>
+<li>Input
+nodes:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">x_1, x_2</annotation></semantics></math></li>
+<li>Hidden
+nodes:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>h</mi><mn>1</mn></msub><mo>,</mo><msub><mi>h</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">h_1, h_2</annotation></semantics></math></li>
+<li>Output
+node:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math></li>
+<li>Weights:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><msub><mi>w</mi><mn>3</mn></msub><mo>,</mo><msub><mi>w</mi><mn>4</mn></msub></mrow><annotation encoding="application/x-tex">w_1, w_2, w_3, w_4</annotation></semantics></math>for
+the input to hidden
+layer,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mn>5</mn></msub><mo>,</mo><msub><mi>w</mi><mn>6</mn></msub></mrow><annotation encoding="application/x-tex">w_5, w_6</annotation></semantics></math>for
+the hidden to output layer</li>
+<li>Biases:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>b</mi><mn>1</mn></msub><mo>,</mo><msub><mi>b</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">b_1, b_2</annotation></semantics></math></li>
 <li>Activations: Leaky ReLU (LReLU) for the hidden layer and sigmoid for
 the output</li>
 </ul>
 <p>Given values:</p>
 <ul>
-<li>Inputs: ( [x_1, x_2] = [0, 1] )</li>
-<li>Target output: ( [y] = [1] )</li>
-<li>Weights: ( [w_1, w_2, w_3, w_4] = [0.3, 0.2, 0.2, -0.6] ), ( [w_5,
-w_6] = [0.5, -1] )</li>
-<li>Biases: ( [b1, b2] = [0.2, -1.4] )</li>
-<li>LReLU: ( LreLU(x) =
-<span class="math display">\[\begin{cases} x, &amp; \text{if } x \geq 0
-\\ 0.2x, &amp; \text{if } x &lt; 0 \end{cases}\]</span>
-)</li>
-<li>Loss Function (MSE): ( L = ( - y)^2 )</li>
-<li>Learning rate: ( = 0.1 )</li>
+<li>Inputs:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">[x_1, x_2] = [0, 1]</annotation></semantics></math></li>
+<li>Target
+output:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mi>y</mi><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">[y] = [1]</annotation></semantics></math></li>
+<li>Weights:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><msub><mi>w</mi><mn>3</mn></msub><mo>,</mo><msub><mi>w</mi><mn>4</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.3</mn><mo>,</mo><mn>0.2</mn><mo>,</mo><mn>0.2</mn><mo>,</mo><mo>−</mo><mn>0.6</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">[w_1, w_2, w_3, w_4] = [0.3, 0.2, 0.2, -0.6]</annotation></semantics></math>,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>w</mi><mn>5</mn></msub><mo>,</mo><msub><mi>w</mi><mn>6</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.5</mn><mo>,</mo><mo>−</mo><mn>1</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">[w_5, w_6] = [0.5, -1]</annotation></semantics></math></li>
+<li>Biases:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mi>b</mi><mn>1</mn><mo>,</mo><mi>b</mi><mn>2</mn><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.2</mn><mo>,</mo><mo>−</mo><mn>1.4</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">[b1, b2] = [0.2, -1.4]</annotation></semantics></math></li>
+<li>LReLU:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mi>r</mi><mi>e</mi><mi>L</mi><mi>U</mi><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">{</mo><mtable><mtr><mtd columnalign="left" style="text-align: left"><mi>x</mi><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow><mi>x</mi><mo>≥</mo><mn>0</mn></mtd></mtr><mtr><mtd columnalign="left" style="text-align: left"><mn>0.2</mn><mi>x</mi><mo>,</mo></mtd><mtd columnalign="left" style="text-align: left"><mrow><mtext mathvariant="normal">if </mtext><mspace width="0.333em"></mspace></mrow><mi>x</mi><mo>&lt;</mo><mn>0</mn></mtd></mtr></mtable></mrow></mrow><annotation encoding="application/x-tex">LreLU(x) = \begin{cases} x, &amp; \text{if } x \geq 0 \\ 0.2x, &amp; \text{if } x &lt; 0 \end{cases}</annotation></semantics></math></li>
+<li>Loss Function
+(MSE):<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><msup><mrow><mo stretchy="true" form="prefix">(</mo><mover><mi>y</mi><mo accent="true">̂</mo></mover><mo>−</mo><mi>y</mi><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">L = \frac{1}{2}(\hat{y} - y)^2</annotation></semantics></math></li>
+<li>Learning
+rate:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.1</mn></mrow><annotation encoding="application/x-tex">\alpha = 0.1</annotation></semantics></math></li>
 </ul>
 <p>The backpropagation process involves the following steps:</p>
 <ol type="1">
-<li><strong>Forward Pass:</strong> Compute the output ( ) for the given
-inputs using the current weights and biases.</li>
+<li><strong>Forward Pass:</strong> Compute the
+output<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover><mi>y</mi><mo accent="true">̂</mo></mover><annotation encoding="application/x-tex">\hat{y}</annotation></semantics></math>for
+the given inputs using the current weights and biases.</li>
 <li><strong>Compute Error:</strong> Calculate the error in the output
 using the loss function.</li>
 <li><strong>Backward Pass:</strong> Compute the gradient of the loss
@@ -646,9 +511,10 @@ calculated gradients and learning rate.</li>
 <p>After performing one step of backpropagation, here are the updated
 weights, biases, and the loss:</p>
 <ul>
-<li>Updated Weights: ( [w_1, w_2, w_3, w_4, w_5, w_6] = [0.3,
-0.20405341, 0.2, -0.60162137, 0.50324273, -1.00324273] )</li>
-<li>Updated Biases: ( [b_1, b_2] = [0.20405341, -1.40162137] )</li>
+<li>Updated
+Weights:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>w</mi><mn>1</mn></msub><mo>,</mo><msub><mi>w</mi><mn>2</mn></msub><mo>,</mo><msub><mi>w</mi><mn>3</mn></msub><mo>,</mo><msub><mi>w</mi><mn>4</mn></msub><mo>,</mo><msub><mi>w</mi><mn>5</mn></msub><mo>,</mo><msub><mi>w</mi><mn>6</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.3</mn><mo>,</mo><mn>0.20405341</mn><mo>,</mo><mn>0.2</mn><mo>,</mo><mo>−</mo><mn>0.60162137</mn><mo>,</mo><mn>0.50324273</mn><mo>,</mo><mo>−</mo><mn>1.00324273</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">[w_1, w_2, w_3, w_4, w_5, w_6] = [0.3, 0.20405341, 0.2, -0.60162137, 0.50324273, -1.00324273]</annotation></semantics></math></li>
+<li>Updated
+Biases:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><msub><mi>b</mi><mn>1</mn></msub><mo>,</mo><msub><mi>b</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.20405341</mn><mo>,</mo><mo>−</mo><mn>1.40162137</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">[b_1, b_2] = [0.20405341, -1.40162137]</annotation></semantics></math></li>
 <li>Loss: 0.06277973</li>
 </ul>
 <p>The weights and biases have been adjusted according to the gradients
@@ -660,42 +526,61 @@ forward pass through the network.</p>
 <li>Describe the computational graph.</li>
 <li>Write the relation between mean and variance.</li>
 <li>Calculate the partial derivatives of the loss function with respect
-to ( ), ( ), ( x_1 ), and ( x_2 ).</li>
+to<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>1</mn></msub><annotation encoding="application/x-tex">x_1</annotation></semantics></math>,
+and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>x</mi><mn>2</mn></msub><annotation encoding="application/x-tex">x_2</annotation></semantics></math>.</li>
 </ul>
-<p>Given a mini-batch ( B ) of size ( m ), the batch normalization
-process is:</p>
+<p>Given a
+mini-batch<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>B</mi><annotation encoding="application/x-tex">B</annotation></semantics></math>of
+size<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>m</mi><annotation encoding="application/x-tex">m</annotation></semantics></math>,
+the batch normalization process is:</p>
 <ol type="1">
-<li><strong>Calculate Mean:</strong> ( <em>B = </em>{i=1}^{m} x_i )</li>
-<li><strong>Calculate Variance:</strong> ( ^2_B = _{i=1}^{m} (x_i -
-_B)^2 )</li>
-<li><strong>Normalize:</strong> ( _i = ) for numerical stability, ( ) is
+<li><strong>Calculate
+Mean:</strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>μ</mi><mi>B</mi></msub><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">\mu_B = \frac{1}{m} \sum_{i=1}^{m} x_i</annotation></semantics></math></li>
+<li><strong>Calculate
+Variance:</strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>σ</mi><mi>B</mi><mn>2</mn></msubsup><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><msup><mrow><mo stretchy="true" form="prefix">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>μ</mi><mi>B</mi></msub><mo stretchy="true" form="postfix">)</mo></mrow><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">\sigma^2_B = \frac{1}{m} \sum_{i=1}^{m} (x_i - \mu_B)^2</annotation></semantics></math></li>
+<li><strong>Normalize:</strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><mo>=</mo><mfrac><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><msub><mi>μ</mi><mi>B</mi></msub></mrow><msqrt><mrow><msubsup><mi>σ</mi><mi>B</mi><mn>2</mn></msubsup><mo>+</mo><mi>ϵ</mi></mrow></msqrt></mfrac></mrow><annotation encoding="application/x-tex">\hat{x}_i = \frac{x_i - \mu_B}{\sqrt{\sigma^2_B + \epsilon}}</annotation></semantics></math>for
+numerical
+stability,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ϵ</mi><annotation encoding="application/x-tex">\epsilon</annotation></semantics></math>is
 a small constant.</li>
-<li><strong>Scale and Shift:</strong> ( y_i = _i + ) where ( ) and ( )
-are learnable parameters.</li>
+<li><strong>Scale and
+Shift:</strong><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>i</mi></msub><mo>=</mo><mi>γ</mi><msub><mover><mi>x</mi><mo accent="true">̂</mo></mover><mi>i</mi></msub><mo>+</mo><mi>β</mi></mrow><annotation encoding="application/x-tex">y_i = \gamma \hat{x}_i + \beta</annotation></semantics></math>where<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>are
+learnable parameters.</li>
 </ol>
-<p>For the computational graph, the loss ( L ) is a function of ( y_i ),
-and we need to compute ( ), ( ), ( ), and ( ).</p>
+<p>For the computational graph, the
+loss<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>L</mi><annotation encoding="application/x-tex">L</annotation></semantics></math>is
+a function
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>y</mi><mi>i</mi></msub><annotation encoding="application/x-tex">y_i</annotation></semantics></math>,
+and we need to
+compute<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mi>∂</mi><mi>L</mi></mrow><mrow><mi>∂</mi><mi>β</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{\partial L}{\partial \beta}</annotation></semantics></math>,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mi>∂</mi><mi>L</mi></mrow><mrow><mi>∂</mi><mi>γ</mi></mrow></mfrac><annotation encoding="application/x-tex">\frac{\partial L}{\partial \gamma}</annotation></semantics></math>,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mi>∂</mi><mi>L</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>1</mn></msub></mrow></mfrac><annotation encoding="application/x-tex">\frac{\partial L}{\partial x_1}</annotation></semantics></math>,
+and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mi>∂</mi><mi>L</mi></mrow><mrow><mi>∂</mi><msub><mi>x</mi><mn>2</mn></msub></mrow></mfrac><annotation encoding="application/x-tex">\frac{\partial L}{\partial x_2}</annotation></semantics></math>.</p>
 <p>The backpropagation through batch normalization yields the following
 partial derivatives:</p>
 <ul>
-<li>Derivative of the loss with respect to the inputs ( x ): ( [dL/dx_1,
-dL/dx_2] = [0.0, 0.0] )</li>
-<li>Derivative of the loss with respect to the scale parameter ( ): (
-dL/d= 0.0 )</li>
-<li>Derivative of the loss with respect to the shift parameter ( ): (
-dL/d= 2.0 )</li>
+<li>Derivative of the loss with respect to the
+inputs<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">[</mo><mi>d</mi><mi>L</mi><mi>/</mi><mi>d</mi><msub><mi>x</mi><mn>1</mn></msub><mo>,</mo><mi>d</mi><mi>L</mi><mi>/</mi><mi>d</mi><msub><mi>x</mi><mn>2</mn></msub><mo stretchy="true" form="postfix">]</mo></mrow><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mn>0.0</mn><mo>,</mo><mn>0.0</mn><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">[dL/dx_1, dL/dx_2] = [0.0, 0.0]</annotation></semantics></math></li>
+<li>Derivative of the loss with respect to the scale
+parameter<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>L</mi><mi>/</mi><mi>d</mi><mi>γ</mi><mo>=</mo><mn>0.0</mn></mrow><annotation encoding="application/x-tex">dL/d\gamma = 0.0</annotation></semantics></math></li>
+<li>Derivative of the loss with respect to the shift
+parameter<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>:<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>L</mi><mi>/</mi><mi>d</mi><mi>β</mi><mo>=</mo><mn>2.0</mn></mrow><annotation encoding="application/x-tex">dL/d\beta = 2.0</annotation></semantics></math></li>
 </ul>
-<p>The derivatives ( dL/dx ) being zero can be a result of the
-simplifications made for this demonstration, particularly the assumption
-that the loss is the sum of the outputs, leading to a gradient of 1 for
-each output. This isn’t typically the case in a real neural network
-where the loss function is more complex. However, the calculations here
-are correct based on the assumptions made.</p>
-<p>The derivative ( dL/d) being 2.0 indicates that increasing ( ) by a
-small amount would increase the loss, given our simple loss function and
-the current values of ( x ), ( ), and ( ).</p>
+<p>The
+derivatives<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>L</mi><mi>/</mi><mi>d</mi><mi>x</mi></mrow><annotation encoding="application/x-tex">dL/dx</annotation></semantics></math>being
+zero can be a result of the simplifications made for this demonstration,
+particularly the assumption that the loss is the sum of the outputs,
+leading to a gradient of 1 for each output. This isn’t typically the
+case in a real neural network where the loss function is more complex.
+However, the calculations here are correct based on the assumptions
+made.</p>
+<p>The
+derivative<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>L</mi><mi>/</mi><mi>d</mi><mi>β</mi></mrow><annotation encoding="application/x-tex">dL/d\beta</annotation></semantics></math>being
+2.0 indicates that
+increasing<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>by
+a small amount would increase the loss, given our simple loss function
+and the current values
+of<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>x</mi><annotation encoding="application/x-tex">x</annotation></semantics></math>,<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>,
+and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>.</p>
 <p>These calculations illustrate how the gradients for batch
 normalization are computed during backpropagation, which can then be
-used to update ( ) and ( ) during training.</p>
-</body>
-</html>
+used to
+update<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>and<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>during
+training.</p>

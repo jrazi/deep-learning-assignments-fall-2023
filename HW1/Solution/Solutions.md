@@ -4,146 +4,146 @@
 
 ## Part 1
 
-For a scalar-valued function \( f: \mathbb{R}^n \rightarrow \mathbb{R} \), the gradient \( \nabla f \) is a vector in \( \mathbb{R}^n \) whose components are the partial derivatives of \( f \) with respect to each variable, that is:
+For a scalar-valued function$f: \mathbb{R}^n \rightarrow \mathbb{R}$, the gradient$\nabla f$is a vector in$\mathbb{R}^n$whose components are the partial derivatives of$f$with respect to each variable, that is:
 
-\[ \nabla f = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right]^T \]
+$$\nabla f = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right]^T$$
 
-The Hessian matrix \( H \) of the function \( f \) is then the square matrix of all second-order mixed partial derivatives:
+The Hessian matrix$H$of the function$f$is then the square matrix of all second-order mixed partial derivatives:
 
-\[ H =
+$$H =
 \begin{bmatrix}
 \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
 \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
 \vdots & \vdots & \ddots & \vdots \\
 \frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_n^2} \\
 \end{bmatrix}
-\]
+$$
 
-If \( f \) is twice continuously differentiable, the order of differentiation does not matter (Schwarz's theorem), and thus the Hessian matrix is symmetric.
+If$f$is twice continuously differentiable, the order of differentiation does not matter (Schwarz's theorem), and thus the Hessian matrix is symmetric.
 
-Now, if we consider \( \nabla f \) as a vector-valued function from \( \mathbb{R}^n \) to \( \mathbb{R}^n \), its Jacobian \( J \) would be a matrix where each row is the gradient of each component of \( \nabla f \). Since \( \nabla f \) is already the gradient of \( f \), its Jacobian would consist of the second derivatives of \( f \) with respect to each variable, which is precisely the Hessian matrix:
+Now, if we consider$\nabla f$as a vector-valued function from$\mathbb{R}^n$to$\mathbb{R}^n$, its Jacobian$J$would be a matrix where each row is the gradient of each component of$\nabla f$. Since$\nabla f$is already the gradient of$f$, its Jacobian would consist of the second derivatives of$f$with respect to each variable, which is precisely the Hessian matrix:
 
-\[ J(\nabla f) = H \]
+$$J(\nabla f) = H$$
 
-This means that the Hessian is effectively the Jacobian of the gradient vector of \( f \). It describes the local curvature of \( f \) in different directions in the space.
+This means that the Hessian is effectively the Jacobian of the gradient vector of$f$. It describes the local curvature of$f$in different directions in the space.
 
 ## Part 2
 
 ### Proof A: Derivative of the Dot Product
 
-Consider the dot product of two vectors \( x \) and \( a \) in \( \mathbb{R}^n \):
+Consider the dot product of two vectors$x$and$a$in$\mathbb{R}^n$:
 
-\[ f(x) = x^T a \]
+$$f(x) = x^T a$$
 
 This function can be expanded as:
 
-\[ f(x) = \sum_{i=1}^{n} x_i a_i \]
+$$f(x) = \sum_{i=1}^{n} x_i a_i$$
 
-Taking the derivative of \( f \) with respect to the vector \( x \) gives us a vector where each component is the partial derivative of \( f \) with respect to \( x_i \):
+Taking the derivative of$f$with respect to the vector$x$gives us a vector where each component is the partial derivative of$f$with respect to$x_i$:
 
-\[ \frac{\partial f}{\partial x} = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right]^T \]
+$$\frac{\partial f}{\partial x} = \left[ \frac{\partial f}{\partial x_1}, \frac{\partial f}{\partial x_2}, \ldots, \frac{\partial f}{\partial x_n} \right]^T$$
 
-Since \( a \) is constant, the derivative of each term \( x_i a_i \) with respect to \( x_i \) is simply \( a_i \). Therefore, the gradient of \( f \) is:
+Since$a$is constant, the derivative of each term$x_i a_i$with respect to$x_i$is simply$a_i$. Therefore, the gradient of$f$is:
 
-\[ \nabla f(x) = a \]
+$$\nabla f(x) = a$$
 
 ### Proof B: Derivative of the Trace of a Matrix Product
 
-Let \( X \) be a matrix and \( A \) a constant matrix. Then the function is:
+Let$X$be a matrix and$A$a constant matrix. Then the function is:
 
-\[ f(X) = \text{tr}(AX) \]
+$$f(X) = \text{tr}(AX)$$
 
-The trace of a matrix product has the property that \( \text{tr}(AB) = \text{tr}(BA) \). The derivative of the trace of a product with respect to the matrix \( X \) is the transpose of the other matrix, hence:
+The trace of a matrix product has the property that$\text{tr}(AB) = \text{tr}(BA)$. The derivative of the trace of a product with respect to the matrix$X$is the transpose of the other matrix, hence:
 
-\[ \frac{\partial \text{tr}(AX)}{\partial X} = A^T \]
+$$\frac{\partial \text{tr}(AX)}{\partial X} = A^T$$
 
 ### Proof C: Derivative of the Trace of a Matrix Quadratic Form
 
-For the quadratic form \( X^TAX \), where \( X \) is a matrix and \( A \) is a symmetric constant matrix, the function \( f(X) \) is:
+For the quadratic form$X^TAX$, where$X$is a matrix and$A$is a symmetric constant matrix, the function$f(X)$is:
 
-\[ f(X) = \text{tr}(X^TAX) \]
+$$f(X) = \text{tr}(X^TAX)$$
 
 By applying the properties of the trace and derivative, we have:
 
-\[ \frac{\partial \text{tr}(X^TAX)}{\partial X} = \frac{\partial \text{tr}(AXX^T)}{\partial X} \]
+$$\frac{\partial \text{tr}(X^TAX)}{\partial X} = \frac{\partial \text{tr}(AXX^T)}{\partial X}$$
 
-Since \( A \) is symmetric, the derivative of this expression with respect to \( X \) involves the sum of derivatives with respect to each element of \( X \), which gives:
+Since$A$is symmetric, the derivative of this expression with respect to$X$involves the sum of derivatives with respect to each element of$X$, which gives:
 
-\[ \frac{\partial \text{tr}(X^TAX)}{\partial X} = (A + A^T)X \]
+$$\frac{\partial \text{tr}(X^TAX)}{\partial X} = (A + A^T)X$$
 
-Given that \( A \) is symmetric, \( A = A^T \), simplifying to:
+Given that$A$is symmetric,$A = A^T$, simplifying to:
 
-\[ \frac{\partial \text{tr}(X^TAX)}{\partial X} = 2AX \]
+$$\frac{\partial \text{tr}(X^TAX)}{\partial X} = 2AX$$
 
-### Proof D: Derivative of the Log Determinant of \( X \)
+### Proof D: Derivative of the Log Determinant of$X$
 
-For a square matrix \( X \), the function \( f(X) \) is:
+For a square matrix$X$, the function$f(X)$is:
 
-\[ f(X) = \log(\det(X)) \]
+$$f(X) = \log(\det(X))$$
 
-Using the property that \( \det(X) \) is the product of its eigenvalues \( \lambda_i \), we can express \( f(X) \) as:
+Using the property that$\det(X)$is the product of its eigenvalues$\lambda_i$, we can express$f(X)$as:
 
-\[ f(X) = \log\left(\prod_{i=1}^{n} \lambda_i\right) \]
+$$f(X) = \log\left(\prod_{i=1}^{n} \lambda_i\right)$$
 
-Taking the derivative of both sides with respect to \( X \) and applying the chain rule, we get:
+Taking the derivative of both sides with respect to$X$and applying the chain rule, we get:
 
-\[ \frac{\partial f(X)}{\partial X} = \frac{\partial}{\partial X} \left(\sum_{i=1}^{n} \log(\lambda_i)\right) \]
+$$\frac{\partial f(X)}{\partial X} = \frac{\partial}{\partial X} \left(\sum_{i=1}^{n} \log(\lambda_i)\right)$$
 
-Since the derivative of the logarithm is \( 1/x \), and using Jacobi's formula for the derivative of a determinant, we obtain:
+Since the derivative of the logarithm is$1/x$, and using Jacobi's formula for the derivative of a determinant, we obtain:
 
-\[ \frac{\partial f(X)}{\partial X} = \frac{1}{\det(X)} \cdot \frac{\partial \det(X)}{\partial X} = \frac{1}{\det(X)} \cdot \det(X) \cdot (X^{-1})^T \]
+$$\frac{\partial f(X)}{\partial X} = \frac{1}{\det(X)} \cdot \frac{\partial \det(X)}{\partial X} = \frac{1}{\det(X)} \cdot \det(X) \cdot (X^{-1})^T$$
 
 Which simplifies to:
 
-\[ \frac{\partial f(X)}{\partial X} = (X^{-1})^T \]
+$$\frac{\partial f(X)}{\partial X} = (X^{-1})^T$$
 
 ## Part 3
 
 ### Eigenvalues and Eigenvectors of Rotation Matrix
 
-Given the rotation matrix \( R(\theta) \):
+Given the rotation matrix$R(\theta)$:
 
-\[ R(\theta) = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix} \]
+$$R(\theta) = \begin{bmatrix} \cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix}$$
 
-To find the eigenvalues, we solve the characteristic equation \( \det(R(\theta) - \lambda I) = 0 \):
+To find the eigenvalues, we solve the characteristic equation$\det(R(\theta) - \lambda I) = 0$:
 
-\[ \begin{vmatrix} \cos(\theta) - \lambda & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) - \lambda \end{vmatrix} = 0 \]
+$$\begin{vmatrix} \cos(\theta) - \lambda & -\sin(\theta) \\ \sin(\theta) & \cos(\theta) - \lambda \end{vmatrix} = 0$$
 
-\[ (\cos(\theta) - \lambda)^2 + \sin^2(\theta) = 0 \]
+$$(\cos(\theta) - \lambda)^2 + \sin^2(\theta) = 0$$
 
-\[ \lambda^2 - 2\lambda\cos(\theta) + 1 = 0 \]
+$$\lambda^2 - 2\lambda\cos(\theta) + 1 = 0$$
 
 Solving this quadratic equation gives us the eigenvalues:
 
-\[ \lambda_{1,2} = \cos(\theta) \pm i\sin(\theta) \]
+$$\lambda_{1,2} = \cos(\theta) \pm i\sin(\theta)$$
 
-The corresponding eigenvectors \( v \) are found by solving \( (R(\theta) - \lambda I)v = 0 \). Since the eigenvalues are complex, the eigenvectors will also be complex. For example, for \( \lambda_1 \), we have:
+The corresponding eigenvectors$v$are found by solving$(R(\theta) - \lambda I)v = 0$. Since the eigenvalues are complex, the eigenvectors will also be complex. For example, for$\lambda_1$, we have:
 
-\[ v_1 = \begin{bmatrix} i \\ 1 \end{bmatrix} \]
+$$v_1 = \begin{bmatrix} i \\ 1 \end{bmatrix}$$
 
-For \( \lambda_2 \), the eigenvector \( v_2 \) will be the complex conjugate of \( v_1 \).
+For$\lambda_2$, the eigenvector$v_2$will be the complex conjugate of$v_1$.
 
 ### Determinant and Eigenvalues
 
-The determinant of a matrix \( X \) is the product of its eigenvalues:
+The determinant of a matrix$X$is the product of its eigenvalues:
 
-\[ \det(X) = \prod_{i=1}^{n} \lambda_i \]
+$$\det(X) = \prod_{i=1}^{n} \lambda_i$$
 
-For the rotation matrix \( R(\theta) \), the eigenvalues are \( e^{i\theta} \) and \( e^{-i\theta} \), so the determinant is:
+For the rotation matrix$R(\theta)$, the eigenvalues are$e^{i\theta}$and$e^{-i\theta}$, so the determinant is:
 
-\[ \det(R(\theta)) = e^{i\theta} \cdot e^{-i\theta} = 1 \]
+$$\det(R(\theta)) = e^{i\theta} \cdot e^{-i\theta} = 1$$
 
 ### Diagonalization and Powers of a Matrix
 
-The diagonalization of a matrix \( X \) is \( X = PDP^{-1} \), where \( D \) is a diagonal matrix of eigenvalues and \( P \) is a matrix of corresponding eigenvectors. For the rotation matrix, this is not possible in real numbers because the eigenvalues are complex. However, if \( R(\theta) \) were diagonalizable over the complex numbers, then:
+The diagonalization of a matrix$X$is$X = PDP^{-1}$, where$D$is a diagonal matrix of eigenvalues and$P$is a matrix of corresponding eigenvectors. For the rotation matrix, this is not possible in real numbers because the eigenvalues are complex. However, if$R(\theta)$were diagonalizable over the complex numbers, then:
 
-\[ R^n(\theta) = (PDP^{-1})^n = PD^nP^{-1} \]
+$$R^n(\theta) = (PDP^{-1})^n = PD^nP^{-1}$$
 
-Since \( D \) is diagonal with \( e^{i\theta} \) and \( e^{-i\theta} \) on the diagonal, \( D^n \) would have \( e^{in\theta} \) and \( e^{-in\theta} \), and thus:
+Since$D$is diagonal with$e^{i\theta}$and$e^{-i\theta}$on the diagonal,$D^n$would have$e^{in\theta}$and$e^{-in\theta}$, and thus:
 
-\[ R^n(\theta) = \begin{bmatrix} \cos(n\theta) & -\sin(n\theta) \\ \sin(n\theta) & \cos(n\theta) \end{bmatrix} \]
+$$R^n(\theta) = \begin{bmatrix} \cos(n\theta) & -\sin(n\theta) \\ \sin(n\theta) & \cos(n\theta) \end{bmatrix}$$
 
-Which is equivalent to \( R(n\theta) \), showing that \( R(n\theta) = R^n(\theta) \).
+Which is equivalent to$R(n\theta)$, showing that$R(n\theta) = R^n(\theta)$.
 
 ## Problem 2
 
@@ -285,34 +285,34 @@ DPReLU provides a solution to the shortcomings of previous ReLU variants by offe
 
 For the given two-layered neural network, we are tasked with performing one step of backpropagation. Here's the architecture for reference:
 
-- Input nodes: \( x_1, x_2 \)
-- Hidden nodes: \( h_1, h_2 \)
-- Output node: \( y \)
-- Weights: \( w_1, w_2, w_3, w_4 \) for the input to hidden layer, \( w_5, w_6 \) for the hidden to output layer
-- Biases: \( b_1, b_2 \)
+- Input nodes:$x_1, x_2$
+- Hidden nodes:$h_1, h_2$
+- Output node:$y$
+- Weights:$w_1, w_2, w_3, w_4$for the input to hidden layer,$w_5, w_6$for the hidden to output layer
+- Biases:$b_1, b_2$
 - Activations: Leaky ReLU (LReLU) for the hidden layer and sigmoid for the output
 
 Given values:
 
-- Inputs: \( [x_1, x_2] = [0, 1] \)
-- Target output: \( [y] = [1] \)
-- Weights: \( [w_1, w_2, w_3, w_4] = [0.3, 0.2, 0.2, -0.6] \), \( [w_5, w_6] = [0.5, -1] \)
-- Biases: \( [b1, b2] = [0.2, -1.4] \)
-- LReLU: \( LreLU(x) = \begin{cases} x, & \text{if } x \geq 0 \\ 0.2x, & \text{if } x < 0 \end{cases} \)
-- Loss Function (MSE): \( L = \frac{1}{2}(\hat{y} - y)^2 \)
-- Learning rate: \( \alpha = 0.1 \)
+- Inputs:$[x_1, x_2] = [0, 1]$
+- Target output:$[y] = [1]$
+- Weights:$[w_1, w_2, w_3, w_4] = [0.3, 0.2, 0.2, -0.6]$,$[w_5, w_6] = [0.5, -1]$
+- Biases:$[b1, b2] = [0.2, -1.4]$
+- LReLU:$LreLU(x) = \begin{cases} x, & \text{if } x \geq 0 \\ 0.2x, & \text{if } x < 0 \end{cases}$
+- Loss Function (MSE):$L = \frac{1}{2}(\hat{y} - y)^2$
+- Learning rate:$\alpha = 0.1$
 
 The backpropagation process involves the following steps:
 
-1. **Forward Pass:** Compute the output \( \hat{y} \) for the given inputs using the current weights and biases.
+1. **Forward Pass:** Compute the output$\hat{y}$for the given inputs using the current weights and biases.
 2. **Compute Error:** Calculate the error in the output using the loss function.
 3. **Backward Pass:** Compute the gradient of the loss with respect to each weight and bias.
 4. **Update Weights and Biases:** Adjust the weights and biases in the direction that minimally reduces the loss, using the calculated gradients and learning rate.
 
 After performing one step of backpropagation, here are the updated weights, biases, and the loss:
 
-- Updated Weights: \( [w_1, w_2, w_3, w_4, w_5, w_6] = [0.3, 0.20405341, 0.2, -0.60162137, 0.50324273, -1.00324273] \)
-- Updated Biases: \( [b_1, b_2] = [0.20405341, -1.40162137] \)
+- Updated Weights:$[w_1, w_2, w_3, w_4, w_5, w_6] = [0.3, 0.20405341, 0.2, -0.60162137, 0.50324273, -1.00324273]$
+- Updated Biases:$[b_1, b_2] = [0.20405341, -1.40162137]$
 - Loss: 0.06277973
 
 The weights and biases have been adjusted according to the gradients computed from the backpropagation algorithm. The loss represents the mean squared error between the predicted output and the target after one forward pass through the network.
@@ -321,25 +321,25 @@ The weights and biases have been adjusted according to the gradients computed fr
 
 - Describe the computational graph.
 - Write the relation between mean and variance.
-- Calculate the partial derivatives of the loss function with respect to \( \beta \), \( \gamma \), \( x_1 \), and \( x_2 \).
+- Calculate the partial derivatives of the loss function with respect to$\beta$,$\gamma$,$x_1$, and$x_2$.
 
-Given a mini-batch \( B \) of size \( m \), the batch normalization process is:
+Given a mini-batch$B$of size$m$, the batch normalization process is:
 
-1. **Calculate Mean:** \( \mu_B = \frac{1}{m} \sum_{i=1}^{m} x_i \)
-2. **Calculate Variance:** \( \sigma^2_B = \frac{1}{m} \sum_{i=1}^{m} (x_i - \mu_B)^2 \)
-3. **Normalize:** \( \hat{x}_i = \frac{x_i - \mu_B}{\sqrt{\sigma^2_B + \epsilon}} \) for numerical stability, \( \epsilon \) is a small constant.
-4. **Scale and Shift:** \( y_i = \gamma \hat{x}_i + \beta \) where \( \gamma \) and \( \beta \) are learnable parameters.
+1. **Calculate Mean:**$\mu_B = \frac{1}{m} \sum_{i=1}^{m} x_i$
+2. **Calculate Variance:**$\sigma^2_B = \frac{1}{m} \sum_{i=1}^{m} (x_i - \mu_B)^2$
+3. **Normalize:**$\hat{x}_i = \frac{x_i - \mu_B}{\sqrt{\sigma^2_B + \epsilon}}$for numerical stability,$\epsilon$is a small constant.
+4. **Scale and Shift:**$y_i = \gamma \hat{x}_i + \beta$where$\gamma$and$\beta$are learnable parameters.
 
-For the computational graph, the loss \( L \) is a function of \( y_i \), and we need to compute \( \frac{\partial L}{\partial \beta} \), \( \frac{\partial L}{\partial \gamma} \), \( \frac{\partial L}{\partial x_1} \), and \( \frac{\partial L}{\partial x_2} \).
+For the computational graph, the loss$L$is a function of$y_i$, and we need to compute$\frac{\partial L}{\partial \beta}$,$\frac{\partial L}{\partial \gamma}$,$\frac{\partial L}{\partial x_1}$, and$\frac{\partial L}{\partial x_2}$.
 
 The backpropagation through batch normalization yields the following partial derivatives:
 
-- Derivative of the loss with respect to the inputs \( x \): \( [dL/dx_1, dL/dx_2] = [0.0, 0.0] \)
-- Derivative of the loss with respect to the scale parameter \( \gamma \): \( dL/d\gamma = 0.0 \)
-- Derivative of the loss with respect to the shift parameter \( \beta \): \( dL/d\beta = 2.0 \)
+- Derivative of the loss with respect to the inputs$x$:$[dL/dx_1, dL/dx_2] = [0.0, 0.0]$
+- Derivative of the loss with respect to the scale parameter$\gamma$:$dL/d\gamma = 0.0$
+- Derivative of the loss with respect to the shift parameter$\beta$:$dL/d\beta = 2.0$
 
-The derivatives \( dL/dx \) being zero can be a result of the simplifications made for this demonstration, particularly the assumption that the loss is the sum of the outputs, leading to a gradient of 1 for each output. This isn't typically the case in a real neural network where the loss function is more complex. However, the calculations here are correct based on the assumptions made.
+The derivatives$dL/dx$being zero can be a result of the simplifications made for this demonstration, particularly the assumption that the loss is the sum of the outputs, leading to a gradient of 1 for each output. This isn't typically the case in a real neural network where the loss function is more complex. However, the calculations here are correct based on the assumptions made.
 
-The derivative \( dL/d\beta \) being 2.0 indicates that increasing \( \beta \) by a small amount would increase the loss, given our simple loss function and the current values of \( x \), \( \gamma \), and \( \beta \).
+The derivative$dL/d\beta$being 2.0 indicates that increasing$\beta$by a small amount would increase the loss, given our simple loss function and the current values of$x$,$\gamma$, and$\beta$.
 
-These calculations illustrate how the gradients for batch normalization are computed during backpropagation, which can then be used to update \( \gamma \) and \( \beta \) during training.
+These calculations illustrate how the gradients for batch normalization are computed during backpropagation, which can then be used to update$\gamma$and$\beta$during training.
